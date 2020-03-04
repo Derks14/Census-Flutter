@@ -25,6 +25,7 @@ class _HomeState extends State<Home> {
     ),
   ];
 
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -36,82 +37,72 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+//      appBar: AppBar(
+//        backgroundColor: Colors.white,
+//        title: Text("Home"),
+//      ),
       body: SingleChildScrollView(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            Padding(
-              padding: EdgeInsets.only(left: 12.0, right: 12.0, top: 30.0, bottom: 8.0),
-              child:             Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  IconButton(
-                    icon: Icon(
-                      CustomIcons.menu,
-                      size: 30.0,
+            Container(
+              alignment: Alignment.center,
+              padding: EdgeInsets.symmetric(vertical: 40.0, horizontal: 5.0),
+              child: Card(
+                color: Colors.blue,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    Container(
+                      alignment: Alignment.center,
+                      padding: EdgeInsets.symmetric(vertical: 20.0),
+                      child: Text("Total Population"
+                      ),
                     ),
-                    onPressed: () {},
-                  ),
-                  IconButton(
-                    icon: Icon(
-                      Icons.settings,
-                      size: 30.0,
+                    Container(
+                      alignment: Alignment.center,
+                      padding: EdgeInsets.symmetric(vertical: 20.0),
+                      child: Text("245,767",
+                        style: TextStyle(
+                          fontSize: 60.0,
+                          fontWeight: FontWeight.bold
+                        ),
+                      ),
                     ),
-                    onPressed: () {},
-                  )
-                ],
-              )
-              ,
+                    Container(
+                      alignment: Alignment.center,
+                      padding: EdgeInsets.only(bottom: 20.0),
+                      child: Text("Ghana 2020",
+                        style: TextStyle(
+                          fontSize: 18.0
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 30.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text("Population",
-                  style: TextStyle(
-                    fontSize: 46.0,
-                    fontFamily: "Calibre-Semibold",
-                    letterSpacing: 1.0,
-                  ),
-                  ),
-                  IconButton(
-                    icon: Icon(
-                      CustomIcons.option,
-                      size: 12.0,
+              padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 5.0),
+              alignment: Alignment.centerLeft,
+              child: Card(
+                color: Colors.red,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      child: Row(
+                        children: <Widget>[
+                          Icon(Icons.person),
+                          Text("Male")
+                        ],
+                      ),
                     ),
-                    onPressed: () {},
-                  ),
-                ],
+                    Text("56")
+                  ],
+                ),
               ),
-            ),
-
-            Padding(
-              padding: const EdgeInsets.only(left: 20.0),
-              child: Row(
-                children: <Widget>[
-
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.amber,
-                      borderRadius: BorderRadius.circular(20.0),
-                    ),
-                    child: Center(
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 22.0, vertical: 6.0),
-                        child: Text("Gender", style: TextStyle(color: Colors.black),),
-                    ),
-                  )
-                  ),
-                  SizedBox(width: 15.0,),
-                  Text("All regions", style: TextStyle(
-                    color: Colors.lightBlueAccent
-                  ),)
-
-                ],
-              ),
-            ),
-            Center(
-              child: _widgetOptions.elementAt(_selectedIndex),
             )
           ],
         ),
